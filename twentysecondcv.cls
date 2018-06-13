@@ -122,7 +122,7 @@
 \newlength\imagewidth
 \newlength\imagescale
 \pgfmathsetlength{\imagewidth}{5cm}
-\pgfmathsetlength{\imagescale}{\imagewidth/600}
+\pgfmathsetlength{\imagescale}{\imagewidth/700}
 
 \newcommand{\profilesection}[2]{\vspace{8pt}{\color{black!80} \huge #1 \rule[0.15\baselineskip]{#2}{1pt}}}
 
@@ -133,6 +133,7 @@
 \newcommand{\cvnumberphone}[1]{\renewcommand{\cvnumberphone}{#1}}
 \newcommand{\cvaddress}[1]{\renewcommand{\cvaddress}{#1}}
 \newcommand{\cvsite}[1]{\renewcommand{\cvsite}{#1}}
+\newcommand{\cvgit}[1]{\renewcommand{\cvgit}{#1}}
 \newcommand{\aboutme}[1]{\renewcommand{\aboutme}{#1}}
 \newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
 \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
@@ -145,13 +146,14 @@
 \newcommand\skills{ 
 ~
 	\smartdiagram[bubble diagram]{
-        \textbf{Full Stack}\\\textbf{Dev},
-        \textbf{Relational/}\\\textbf{Document}\\\textbf{Databases},
-        \textbf{~~~~OOP~~~~~},
-        \textbf{Mobile}\\\textbf{Dev},
+        \textbf{SQL/}\\\textbf{NoSQL}\\\textbf{Databases},
+        \textbf{~~~~BI \& AI~~~~~}\\\textbf{Dev},
+        \textbf{~~~~ETL~~~~~},
+        \textbf{~~~~Salesforce~~~~~},
+        \textbf{Data}\\\textbf{Warehousing},
         \textbf{Machine}\\\textbf{Learning},
-        \textbf{Test}\\\textbf{~~Automation~~},
-        \textbf{Statistical}\\\textbf{Analysis}
+        \textbf{Data}\\\textbf{~~Visualization~~},
+        \textbf{Big Data}\\\textbf{Analysis}
     }
 }
 
@@ -174,7 +176,7 @@
 
 \newcommand{\makeprofile}{
   \begin{tikzpicture}[remember picture,overlay]
-      \node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.5cm){};
+      \node [rectangle, fill=sidecolor, anchor=north, minimum width=9cm, minimum height=\paperheight+1cm] (box) at (-5cm,0.3cm){};
   \end{tikzpicture}
 
   %------------------------------------------------
@@ -194,33 +196,41 @@
     
         \vspace{5mm}
     \renewcommand{\arraystretch}{1.6}
-    \begin{tabular}{p{1cm} @{\hskip 0.5cm}p{5cm}}
+    \begin{tabular}{p{1cm} @{\hskip 0.5cm}p{6cm}}
         
           \ifthenelse{\equal{\cvlinkedin}{}}{}{
             {$
               \begin{array}{l}
               {\href{\cvlinkedin}{\includegraphics[scale=0.04]{img/LinkedIn_Logo.png}}}
               \end{array}
-              $} & \href{\cvlinkedin}{\hspace{16mm}/in/hsgadgil} \\
+              $} & \href{\cvlinkedin}{\hspace{16mm}/in/huali-zhou} \\
             }
+
       \ifthenelse{\equal{\cvnumberphone}{}}{}{
             {$
               \begin{array}{l}
-              \includegraphics[scale=0.1]{img/tel.png}
+              \includegraphics[scale=0.07]{img/tel.png}
               \end{array}
               $} 
             & \cvnumberphone\\}
+          \ifthenelse{\equal{\href{\cvgit}{\cvgit}}{}}{}{
+            {$
+              \begin{array}{l}
+              {\href{\cvgit}{\includegraphics[scale=0.03]{img/service_512.png}}}
+              \end{array}
+              $} 
+            & \cvgit\\}
       \ifthenelse{\equal{\href{\cvsite}{\cvsite}}{}}{}{
             {$
               \begin{array}{l}
-              {\href{\cvsite}{\includegraphics[scale=0.05]{img/globe-512.png}}}
+              {\href{\cvsite}{\includegraphics[scale=0.03]{img/globe-512.png}}}
               \end{array}
               $} 
             & \cvsite\\}
       \ifthenelse{\equal{\cvmail}{}}{}{
             {$
               \begin{array}{l}
-              {\href{mailto:\cvmail}{\includegraphics[scale=0.05]{img/email.png}}}
+              {\href{mailto:\cvmail}{\includegraphics[scale=0.03]{img/email.png}}}
               \end{array}
               $} 
             & \href{mailto:\cvmail}{\cvmail}}
@@ -234,18 +244,28 @@
         
         %------------------------------------------------
         
-        \profilesection{Interests}{3cm} 
+        %\profilesection{Interests}{3cm} 
         
-		\interests{{Data Mining \& Statistical Analysis/5},{Software Development/5.8},{Cryptography/4.3},{UI Design/4},{Cloud Computing/5}}
+		%\interests{{Data Mining \& Statistical Analysis/5},{Data Engineer/5.8},{Volunteering \& Charity activities/4.3},{UI Design/4},{Software Development/5}}
         
-        \interests
-        
-        \profilesection{Languages}{2.4cm} 
+        %\interests
+ 
+   
+
+                \profilesection{Languages}{2.4cm} 
         {$
               \begin{array}{l}
-              \hspace{-2mm}{\includegraphics[scale=0.45]{img/languages_muted.png}}
+              \hspace{-2mm}{\includegraphics[scale=0.45]{img/technique.png}}
               \end{array}
-        $}   
+        $}
+                  \profilesection{Personalities}{2cm} 
+        {$
+              \begin{array}{l}
+              {}
+              \hspace{-4mm}{\includegraphics[scale=0.22]{img/Personalities_____.png}}
+              \end{array}
+        $} 
+
   \end{textblock}
 }
 
